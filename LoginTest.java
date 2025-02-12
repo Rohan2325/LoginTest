@@ -30,6 +30,7 @@ public class LoginTest {
 	        
            String expectedUrl = "https://app.germanyiscalling.com/cv/upload/";
 	       Assert.assertEquals(driver.getCurrentUrl(),expectedUrl, "user was not redirected to landing page" );
+		    
 	       driver.findElement(By.xpath("//span[@class='d-none d-sm-inline mx-1']")).click();
 	    	driver.findElement(By.xpath("//i[@class='bi bi-box-arrow-right']//parent::span")).click();
 	    }
@@ -45,10 +46,9 @@ public class LoginTest {
 	        passwordField.sendKeys("invalidPassword");
 	        loginButton.click();
 	     
-	       String expectedUrl = "https://app.germanyiscalling.com/cv/upload/";
-	       String actualUrl = driver.getCurrentUrl();
-	       Assert.assertEquals(actualUrl, expectedUrl);
-	    }
+            String expectedUrl = "https://app.germanyiscalling.com/common/login/?next=https%3A%2F%2Fapp.germanyiscalling.com%2Fcv%2Fhome%2F";
+              Assert.assertEquals(driver.getCurrentUrl(), expectedUrl, "User was redirected to an incorrect page after failed login");
+            }
 
 	    @AfterClass
 	    public void tearDown() {
