@@ -46,7 +46,7 @@ public class LoginTest {
 	        passwordField.sendKeys("invalidPassword");
 	        loginButton.click();
 	     
-            String expectedUrl = "https://app.germanyiscalling.com/common/login/?next=https%3A%2F%2Fapp.germanyiscalling.com%2Fcv%2Fhome%2F";
+            String expectedUrl = "https://app.germanyiscalling.com/common/login/";
               Assert.assertEquals(driver.getCurrentUrl(), expectedUrl, "User was redirected to an incorrect page after failed login");
             }
 
